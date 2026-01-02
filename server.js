@@ -4,15 +4,16 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
+// Middleware
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
+app.use(express.static(__dirname)); // Serve static files
 
 const csvFilePath = path.join(__dirname, 'users.csv');
 
-// Endpoint to handle registration
-app.post('/register', (req, res) => {
+// API Routes
+app.post('/api/register', (req, res) => {
     console.log('Received registration request:', req.body);
     const { name, email, password } = req.body;
 
@@ -36,8 +37,7 @@ app.post('/register', (req, res) => {
     });
 });
 
-// Endpoint to handle login
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     console.log('Received login request:', req.body);
     const { email, password } = req.body;
 
@@ -55,17 +55,6 @@ app.post('/login', (req, res) => {
         }
 
         const lines = data.trim().split('\n').filter(line => line.trim());
-        const users = lines.slice(1).map(line => {
-            const parts = line.split(',');
-            if (parts.length >= 3) {
-                const [name, userEmail, userPassword] = parts;
-                return { name: name.trim(), email: userEmail.trim(), password: userPassword.trim() };
-            }
-            return null;
-        }).filter(user => user !== null);
-
-        console.log('Raw CSV data:', data);
-        console.log('Lines:', lines);
         const parsedUsers = lines.slice(1).map(line => {
             const parts = line.split(',');
             if (parts.length >= 3) {
@@ -75,7 +64,7 @@ app.post('/login', (req, res) => {
             return null;
         }).filter(user => user !== null);
 
-        console.log('Parsed users:', parsedUsers); // Debug log
+        console.log('Parsed users:', parsedUsers);
 
         // Find user by email
         const user = parsedUsers.find(u => u.email === email);
@@ -96,6 +85,11 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Catch-all route to serve index.html for SPA routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running on port ${port}`);
 });
