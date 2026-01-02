@@ -8,7 +8,6 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Use /tmp directory for data storage in production (Vercel), otherwise use local /data directory
 const dataDir = process.env.NODE_ENV === 'production' ? '/tmp' : path.join(__dirname, 'data');
@@ -104,11 +103,9 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Catch-all to serve index.html for any other GET request
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+module.exports = app;
