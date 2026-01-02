@@ -1,0 +1,42 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ai" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00BCD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#bg2)"/>
+  
+  <!-- AI Brain -->
+  <circle cx="200" cy="100" r="50" fill="url(#ai)" opacity="0.9"/>
+  <circle cx="180" cy="90" r="8" fill="white"/>
+  <circle cx="220" cy="90" r="8" fill="white"/>
+  <path d="M180 110 Q200 125 220 110" stroke="white" stroke-width="3" fill="none"/>
+  
+  <!-- Neural Network Lines -->
+  <line x1="100" y1="50" x2="150" y2="80" stroke="white" stroke-width="2" opacity="0.6"/>
+  <line x1="300" y1="50" x2="250" y2="80" stroke="white" stroke-width="2" opacity="0.6"/>
+  <line x1="100" y1="150" x2="150" y2="120" stroke="white" stroke-width="2" opacity="0.6"/>
+  <line x1="300" y1="150" x2="250" y2="120" stroke="white" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Document with Feedback -->
+  <rect x="50" y="170" width="100" height="60" fill="white" rx="3" opacity="0.8"/>
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">Essay Text</text>
+  <text x="100" y="205" font-family="Arial, sans-serif" font-size="8" fill="#666" text-anchor="middle">Sample content...</text>
+  
+  <!-- Feedback Box -->
+  <rect x="250" y="170" width="100" height="60" fill="#E8F5E9" rx="3" opacity="0.9"/>
+  <text x="300" y="190" font-family="Arial, sans-serif" font-size="10" fill="#2E7D32" text-anchor="middle">✓ Good Grammar</text>
+  <text x="300" y="205" font-family="Arial, sans-serif" font-size="10" fill="#2E7D32" text-anchor="middle">✓ Clear Structure</text>
+  <text x="300" y="220" font-family="Arial, sans-serif" font-size="10" fill="#F57C00" text-anchor="middle">⚡ Add more details</text>
+  
+  <!-- GPT-4 Badge -->
+  <rect x="150" y="20" width="100" height="25" fill="#2196F3" rx="12"/>
+  <text x="200" y="37" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">GPT-4 Powered</text>
+</svg>

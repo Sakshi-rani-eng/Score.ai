@@ -1,0 +1,14 @@
+{
+  "name": "essay-scoring-system",
+  "version": "1.0.0",
+  "description": "Automatic Essay Scoring and Feedback System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "papaparse": "^5.4.1"
+  }
+}
